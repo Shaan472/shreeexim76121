@@ -14,7 +14,7 @@ export default function HomePage() {
   const heroSlides = [
     {
       image: 'https://as1.ftcdn.net/v2/jpg/01/63/13/30/1000_F_163133061_TlMOMqgxAvBuwzLAjxOQ8v1FQ3OexfRG.jpg',
-      title: 'Premium Quality Export Products',
+      title: 'Premium Quality Export Product',
       subtitle: 'Fresh vegetables, aromatic spices, and delicious fruits from the finest farms',
       cta: 'Explore Our Products'
     },
