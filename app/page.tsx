@@ -518,11 +518,11 @@ The company understands the importance of Quality and Timely Delivery of merchan
             </div>
           </div>
           
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <Link href="/contact-us" className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
               View All Certifications
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
