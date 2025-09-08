@@ -156,15 +156,11 @@ export default function ContactPage() {
         </div>
         <h3 className="text-xl font-semibold mb-3">Phone</h3>
         <p className="mb-1">
-          <a href="tel:+15551234567" className="text-gray-600 hover:text-blue-600">
-            +1 (555) 123-4567
+          <a href="tel:+916353704155" className="text-gray-600 hover:text-blue-600">
+           +916353704155
           </a>
         </p>
-        <p className="mb-1">
-          <a href="tel:+15559876543" className="text-gray-600 hover:text-blue-600">
-            +1 (555) 987-6543
-          </a>
-        </p>
+        
       </div>
 
       {/* Email */}
@@ -213,12 +209,12 @@ export default function ContactPage() {
         <h3 className="text-xl font-semibold mb-3">WhatsApp</h3>
         <p className="mb-1">
           <a
-            href="https://wa.me/15551234567"
+            href="https://wa.me/+916353704155"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-green-600"
           >
-            +1 (555) 123-4567
+           +916353704155
           </a>
         </p>
       </div>
@@ -414,11 +410,11 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <FaWhatsapp className="text-2xl" />
-                    <span>WhatsApp: +1 (555) 123-4567</span>
+                    <span>WhatsApp:+916353704155</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaPhone className="text-xl" />
-                    <span>Call: +1 (555) 123-4567</span>
+                    <span>Call:+916353704155</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaEnvelope className="text-xl" />

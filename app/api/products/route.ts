@@ -41,10 +41,16 @@ export async function POST(request: NextRequest) {
     
     const body = await request.json();
     
-    const product = new Product({
+    // Handle optional fields - convert empty strings to undefined
+    const productData = {
       ...body,
+      description: body.description || undefined,
+      price: body.price ? parseFloat(body.price) : undefined,
+      unit: body.unit || undefined,
       updatedAt: new Date()
-    });
+    };
+    
+    const product = new Product(productData);
     
     await product.save();
     

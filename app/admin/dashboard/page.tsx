@@ -397,9 +397,9 @@ export default function AdminDashboard() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Category
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Price
-                  </th>
+                  </th> */}
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Status
                   </th>
@@ -420,7 +420,7 @@ export default function AdminDashboard() {
                         />
                         <div className="ml-4">
                           <div className="text-sm font-medium text-gray-900">{product.name}</div>
-                          <div className="text-sm text-gray-500">{product?.description?.substring(0, 50)}...</div>
+                          {/* <div className="text-sm text-gray-500">{product?.description?.substring(0, 50)}...</div> */}
                         </div>
                       </div>
                     </td>
@@ -433,9 +433,9 @@ export default function AdminDashboard() {
                         {product.category}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       ${product.price} / {product.unit}
-                    </td>
+                    </td> */}
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex flex-col gap-1">
                         <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
@@ -493,7 +493,7 @@ export default function AdminDashboard() {
                     className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
                 </div>
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium text-gray-700">Description</label>
                   <textarea
                     value={formData.description}
@@ -502,7 +502,7 @@ export default function AdminDashboard() {
                     rows={3}
                     className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
-                </div>
+                </div> */}
                                  <div>
                    <label className="block text-sm font-medium text-gray-700">Product Image</label>
                    
@@ -555,7 +555,7 @@ export default function AdminDashboard() {
                      </div> */}
                    </div>
                  </div>
-                <div className="grid grid-cols-2 gap-4">
+                {/* <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700">Price</label>
                     <input
@@ -579,7 +579,7 @@ export default function AdminDashboard() {
                       <option value="piece">piece</option>
                     </select>
                   </div>
-                </div>
+                </div> */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Category</label>
                   <select

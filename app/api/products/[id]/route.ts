@@ -41,12 +41,18 @@ export async function PUT(
     
     const body = await request.json();
     
+    // Handle optional fields - convert empty strings to undefined
+    const productData = {
+      ...body,
+      description: body.description || undefined,
+      price: body.price ? parseFloat(body.price) : undefined,
+      unit: body.unit || undefined,
+      updatedAt: new Date()
+    };
+    
     const product = await Product.findByIdAndUpdate(
       id,
-      {
-        ...body,
-        updatedAt: new Date()
-      },
+      productData,
       { new: true, runValidators: true }
     );
     

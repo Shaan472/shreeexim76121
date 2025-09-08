@@ -41,14 +41,14 @@ export default function SpicesPage() {
   const filteredProducts = products
     .filter(product => 
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+      (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()))
     )
     .sort((a, b) => {
       switch (sortBy) {
         case 'price-low':
-          return a.price - b.price;
+          return (a.price || 0) - (b.price || 0);
         case 'price-high':
-          return b.price - a.price;
+          return (b.price || 0) - (a.price || 0);
         case 'name':
           return a.name.localeCompare(b.name);
         case 'featured':
@@ -101,7 +101,7 @@ export default function SpicesPage() {
                 />
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            {/* <div className="flex items-center gap-4">
               <FaFilter className="text-gray-600" />
               <select
                 value={sortBy}
@@ -113,7 +113,7 @@ export default function SpicesPage() {
                 <option value="price-high">Price: High to Low</option>
                 <option value="featured">Featured First</option>
               </select>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

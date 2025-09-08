@@ -6,10 +6,10 @@ import { FaStar } from 'react-icons/fa';
 interface Product {
   _id: string;
   name: string;
-  description: string;
+  description?: string;
   image: string;
-  price: number;
-  unit: string;
+  price?: number;
+  unit?: string;
   category: string;
   inStock: boolean;
   featured: boolean;
@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-800 mb-2">{product.name}</h3>
-        <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p>
+        {/* <p className="text-gray-600 text-sm mb-4 line-clamp-2">{product.description}</p> */}
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <div className="flex text-yellow-400 mr-2">
@@ -51,12 +51,12 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
             <span className="text-sm text-gray-500">(4.8)</span>
           </div>
-          <div className="text-right">
+          {/* <div className="text-right">
             <div className="text-2xl font-bold text-green-600">${product.price}</div>
             <div className="text-sm text-gray-500">per {product.unit}</div>
-          </div>
+          </div> */}
         </div>
-        <button 
+        {/* <button 
           className={`w-full mt-4 py-2 px-4 rounded-lg font-semibold transition ${
             product.inStock 
               ? 'bg-green-600 text-white hover:bg-green-700' 
@@ -65,7 +65,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           disabled={!product.inStock}
         >
           {product.inStock ? 'Inquire Now' : 'Out of Stock'}
-        </button>
+        </button> */}
       </div>
     </div>
   );

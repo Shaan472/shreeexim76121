@@ -13,7 +13,7 @@ const ProductSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
   image: {
     type: String,
@@ -21,11 +21,11 @@ const ProductSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
-    required: true
+    required: false
   },
   unit: {
     type: String,
-    required: true,
+    required: false,
     default: 'kg'
   },
   inStock: {
