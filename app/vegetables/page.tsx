@@ -85,6 +85,70 @@ export default function VegetablesPage() {
         </div>
       </section>
 
+ {/* Vegetables Information Section */}
+ <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+      <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Vegetables</h2>
+        <div className="mb-8">
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  Vegetables are the edible parts of herbaceous plants, such as leaves, stems, roots, flowers, and bulbs, which are consumed for their nutritional value, including vitamins, minerals, fiber, and antioxidants.
+                </p>
+              </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image Section */}
+            <div className="order-2 lg:order-1">
+              <img 
+                src="/images/vegetable.jpg" 
+                alt="Fresh Vegetables"
+                className="w-full h-96 object-cover rounded-lg shadow-lg"
+              />
+            </div>
+            
+            {/* Content Section */}
+            <div className="order-1 lg:order-2">
+              
+              {/* Main Content */}
+              
+              
+              {/* Points Section */}
+              <div className="space-y-4">
+                {/* <h3 className="text-2xl font-semibold text-gray-800 mb-4">Key Benefits:</h3> */}
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">1</span>
+                    <span className="text-gray-700">Vegetables are excellent sources of essential nutrients, including vitamins (A, C), minerals (calcium, iron), fiber, and antioxidants</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">2</span>
+                    <span className="text-gray-700">A diet rich in vegetables can help lower blood pressure, reduce the risk of heart disease and stroke, and prevent some types of cancer.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">3</span>
+                    <span className="text-gray-700">They are often added to soups, stews, casseroles, and other dishes, or consumed as snacks.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">4</span>
+                    <span className="text-gray-700">The fiber in vegetables helps maintain a healthy digestive system and can prevent constipation.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">5</span>
+                    <span className="text-gray-700">They are low in calories and fat, helping with weight management and promoting a healthy gut and regular digestion.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">6</span>
+                    <span className="text-gray-700">Incorporating a variety of vegetables into your daily meals is a natural and effective way to stay healthy and strong.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">7</span>
+                    <span className="text-gray-700">Many vegetables can be eaten raw, as in salads, or are cooked in various ways, including boiling, steaming, or grilling.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Filters and Search */}
       <section className="py-8 bg-white border-b">
         <div className="container mx-auto px-6">
@@ -118,8 +182,11 @@ export default function VegetablesPage() {
         </div>
       </section>
 
+     
+
       {/* Products Grid */}
       <section className="py-12">
+        
         <div className="container mx-auto px-6">
           {filteredProducts.length === 0 ? (
             <div className="text-center py-20">
@@ -133,7 +200,7 @@ export default function VegetablesPage() {
             <>
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                  {searchTerm ? `Search results for "${searchTerm}"` : 'All Vegetables'}
+                  {searchTerm ? `Search results for "${searchTerm}"` : 'Our Vegetable Products'}
                 </h2>
                 <p className="text-gray-600">
                   Showing {filteredProducts.length} of {products.length} products

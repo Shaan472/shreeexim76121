@@ -38,6 +38,21 @@ export default function AdminDashboard() {
   });
   const [uploadingImage, setUploadingImage] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [productToDelete, setProductToDelete] = useState<Product | null>(null);
+
+  // Prevent background scroll when any modal is open
+  useEffect(() => {
+    const anyModalOpen = showAddModal || !!editingProduct || showDeleteModal;
+    if (anyModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showAddModal, editingProduct, showDeleteModal]);
 
   useEffect(() => {
     setIsClient(true);
@@ -183,35 +198,48 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleDeleteProduct = async (productId: string) => {
-    if (!confirm('Are you sure you want to delete this product?')) return;
+  const openDeleteModal = (product: Product) => {
+    setProductToDelete(product);
+    setShowDeleteModal(true);
+  };
 
+  const confirmDeleteProduct = async () => {
+    if (!productToDelete) return;
     try {
-      const response = await fetch(`/api/products/${productId}`, {
+      const response = await fetch(`/api/products/${productToDelete._id}`, {
         method: 'DELETE',
       });
-
       if (response.ok) {
+        setShowDeleteModal(false);
+        setProductToDelete(null);
         fetchProducts();
       }
     } catch (error) {
       console.error('Error deleting product:', error);
+    } finally {
+      setShowDeleteModal(false);
+      setProductToDelete(null);
     }
+  };
+
+  const cancelDelete = () => {
+    setShowDeleteModal(false);
+    setProductToDelete(null);
   };
 
   const openEditModal = (product: Product) => {
     setEditingProduct(product);
     setFormData({
-      name: product.name,
-      description: product.description,
-      image: product.image,
-      price: product.price.toString(),
-      unit: product.unit,
-      category: product.category,
-      inStock: product.inStock,
-      featured: product.featured
+      name: product?.name || '',
+      description: product?.description || '',
+      image: product?.image || '',
+      price: product?.price !== undefined && product?.price !== null ? product.price.toString() : '',
+      unit: product?.unit || 'kg',
+      category: product?.category || 'vegetables',
+      inStock: typeof product?.inStock === 'boolean' ? product.inStock : true,
+      featured: typeof product?.featured === 'boolean' ? product.featured : false
     });
-    setImagePreview(product.image);
+    setImagePreview(product?.image || null);
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -459,7 +487,7 @@ export default function AdminDashboard() {
                           <FaEdit />
                         </button>
                         <button
-                          onClick={() => handleDeleteProduct(product._id)}
+                          onClick={() => openDeleteModal(product)}
                           className="text-red-600 hover:text-red-900"
                         >
                           <FaTrash />
@@ -476,8 +504,8 @@ export default function AdminDashboard() {
 
       {/* Add/Edit Product Modal */}
       {(showAddModal || editingProduct) && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-[2px] z-[1000] flex items-center justify-center p-4">
+          <div className="w-full max-w-md sm:max-w-lg md:max-w-xl p-5 border shadow-lg rounded-md bg-white max-h-[85vh] overflow-y-auto">
             <div className="mt-3">
               <h3 className="text-lg font-medium text-gray-900 mb-4">
                 {editingProduct ? 'Edit Product' : 'Add New Product'}
@@ -632,6 +660,35 @@ export default function AdminDashboard() {
                   </button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-[2px] z-[1000] flex items-center justify-center p-4">
+          <div className="w-full max-w-sm sm:max-w-md p-6 border shadow-lg rounded-lg bg-white">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Delete Product</h3>
+            <p className="text-sm text-gray-600 mb-6">
+              Are you sure you want to delete
+              {productToDelete ? ` "${productToDelete.name}"` : ''}? This action cannot be undone.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={cancelDelete}
+                className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={confirmDeleteProduct}
+                className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md"
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>

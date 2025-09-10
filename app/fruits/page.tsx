@@ -85,6 +85,66 @@ export default function FruitsPage() {
         </div>
       </section>
 
+{/* Fruits Information Section */}
+<section className="py-16 bg-white">
+  <div className="container mx-auto px-6">
+    <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Fruits</h2>
+    <div className="mb-8">
+      <p className="text-lg text-gray-700 leading-relaxed mb-6">
+        Fruits are the edible, often sweet and fleshy, parts of a flowering plant that contain seeds and are a crucial source of vitamins, fiber, and minerals for human health.
+      </p>
+    </div>
+    
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      
+      {/* Image Section */}
+      <div className="order-2 lg:order-1">
+        <img 
+          src="/images/fruits.jpg" 
+          alt="fruits"
+          className="w-full h-96 object-cover rounded-lg shadow-lg"
+        />
+      </div>
+
+      {/* Content Section */}
+      <div className="order-1 lg:order-2">
+
+        {/* Points Section */}
+        <div className="space-y-4">
+          <ul className="space-y-3">
+            <li className="flex items-start">
+              <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">1</span>
+              <span className="text-gray-700">Eating fruit provides health benefits — people who eat more fruits as part of an overall healthy diet are likely to have a reduced risk of some chronic diseases.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">2</span>
+              <span className="text-gray-700">Most fruits are naturally low in fat, sodium, and calories. None have cholesterol.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">3</span>
+              <span className="text-gray-700">Fruits provide nutrients vital for health and maintenance of your body.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">4</span>
+              <span className="text-gray-700">In everyday language, fruits are typically sweet, fleshy, and edible raw.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">5</span>
+              <span className="text-gray-700">The Fruit Group includes all fruits and 100% fruit juice. Fruits may be fresh, frozen, canned, or dried/dehydrated.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="flex-shrink-0 w-6 h-6 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">6</span>
+              <span className="text-gray-700">The high fiber content in fruits helps maintain a healthy digestive system, aids in proper bowel function, and helps prevent constipation.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
       {/* Filters and Search */}
       <section className="py-8 bg-white border-b">
         <div className="container mx-auto px-6">
