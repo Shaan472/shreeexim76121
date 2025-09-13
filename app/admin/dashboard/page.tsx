@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaPlus, FaEdit, FaTrash, FaEye, FaSignOutAlt, FaBox, FaUsers, FaGlobe, FaChartLine } from 'react-icons/fa';
+import { ToastContainer, useToast } from '../../Components/Toast';
 
 interface Product {
   _id: string;
@@ -40,6 +41,8 @@ export default function AdminDashboard() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [productToDelete, setProductToDelete] = useState<Product | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const { toasts, success, error, removeToast } = useToast();
 
   // Prevent background scroll when any modal is open
   useEffect(() => {
@@ -156,9 +159,14 @@ export default function AdminDashboard() {
          });
          setImagePreview(null);
          fetchProducts();
+         success('Product added successfully!');
+       } else {
+         const errorData = await response.json();
+         error(errorData.message || 'Failed to add product');
        }
     } catch (error) {
       console.error('Error adding product:', error);
+      error('Failed to add product. Please try again.');
     }
   };
 
@@ -192,9 +200,14 @@ export default function AdminDashboard() {
          });
          setImagePreview(null);
          fetchProducts();
+         success('Product updated successfully!');
+       } else {
+         const errorData = await response.json();
+         error(errorData.message || 'Failed to update product');
        }
     } catch (error) {
       console.error('Error updating product:', error);
+      error('Failed to update product. Please try again.');
     }
   };
 
@@ -213,9 +226,13 @@ export default function AdminDashboard() {
         setShowDeleteModal(false);
         setProductToDelete(null);
         fetchProducts();
+        success('Product deleted successfully!');
+      } else {
+        error('Failed to delete product');
       }
     } catch (error) {
       console.error('Error deleting product:', error);
+      error('Failed to delete product. Please try again.');
     } finally {
       setShowDeleteModal(false);
       setProductToDelete(null);
@@ -246,6 +263,23 @@ export default function AdminDashboard() {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    // Clear previous errors
+    setUploadError(null);
+
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+      setUploadError('Invalid file type. Only JPEG, PNG, and WebP images are allowed.');
+      return;
+    }
+
+    // Validate file size (35MB)
+    const maxSize = 35 * 1024 * 1024; // 35MB
+    if (file.size > maxSize) {
+      setUploadError('File size too large. Maximum size is 35MB.');
+      return;
+    }
+
     setUploadingImage(true);
     try {
       const formData = new FormData();
@@ -261,12 +295,16 @@ export default function AdminDashboard() {
       if (response.ok) {
         setFormData(prev => ({ ...prev, image: data.url }));
         setImagePreview(data.url);
+        setUploadError(null);
+        success('Image uploaded successfully!');
       } else {
-        alert(data.error || 'Failed to upload image');
+        setUploadError(data.error || 'Failed to upload image');
+        error(data.error || 'Failed to upload image');
       }
     } catch (error) {
       console.error('Upload error:', error);
-      alert('Failed to upload image');
+      setUploadError('Failed to upload image. Please try again.');
+      error('Failed to upload image. Please try again.');
     } finally {
       setUploadingImage(false);
     }
@@ -320,6 +358,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <ToastContainer toasts={toasts} onClose={removeToast} />
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -533,13 +572,14 @@ export default function AdminDashboard() {
                 </div> */}
                                  <div>
                    <label className="block text-sm font-medium text-gray-700">Product Image</label>
+                   <p className="text-xs text-gray-500 mb-2">Max file size: 35MB. Supported formats: JPEG, PNG, WebP</p>
                    
                    {/* Image Upload */}
                    <div className="mt-1 space-y-3">
                      <div className="flex items-center gap-3">
                        <input
                          type="file"
-                         accept="image/*"
+                         accept="image/jpeg,image/jpg,image/png,image/webp"
                          onChange={handleImageUpload}
                          disabled={uploadingImage}
                          className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
@@ -548,6 +588,13 @@ export default function AdminDashboard() {
                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600"></div>
                        )}
                      </div>
+                     
+                     {/* Upload Error Display */}
+                     {uploadError && (
+                       <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-md p-2">
+                         {uploadError}
+                       </div>
+                     )}
                      
                      {/* Image Preview */}
                      {imagePreview && (

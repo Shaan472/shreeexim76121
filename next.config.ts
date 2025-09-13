@@ -10,6 +10,17 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   // output: "export", // ✅ Generate static HTML in "out" folder
+  experimental: {
+    // Increase body size limit for file uploads
+    serverComponentsExternalPackages: [],
+  },
+  // Configure API routes for larger file uploads
+  api: {
+    bodyParser: {
+      sizeLimit: '35mb',
+    },
+    responseLimit: '35mb',
+  },
 };
 
 export default nextConfig;

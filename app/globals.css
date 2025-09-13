@@ -32,3 +32,90 @@ body {
   overflow: hidden;
 }
 
+/* Divide slide into 3 horizontal slices (same as before) */
+.hero-swiper .slice-1 {
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+.hero-swiper .slice-2 {
+  clip-path: polygon(0 33%, 100% 33%, 100% 66%, 0 66%);
+}
+.hero-swiper .slice-3 {
+  clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+}
+
+/* Vertical movement */
+.swiper-slide-active .slice-1 {
+  transform: translateY(0);
+}
+.swiper-slide-next .slice-1 {
+  transform: translateY(100%);
+}
+.swiper-slide-prev .slice-1 {
+  transform: translateY(-100%);
+}
+
+.swiper-slide-active .slice-2 {
+  transform: translateY(0);
+}
+.swiper-slide-next .slice-2 {
+  transform: translateY(100%);
+}
+.swiper-slide-prev .slice-2 {
+  transform: translateY(-100%);
+}
+
+.swiper-slide-active .slice-3 {
+  transform: translateY(0);
+}
+.swiper-slide-next .slice-3 {
+  transform: translateY(100%);
+}
+.swiper-slide-prev .slice-3 {
+  transform: translateY(-100%);
+}
+
+
+/* @layer utilities {
+  .slide-anim {
+    animation: waveIn 1s ease forwards;
+  }
+
+  @keyframes waveIn {
+    0% {
+      clip-path: circle(0% at 50% 100%);
+      transform: scale(1.1);
+    }
+    100% {
+      clip-path: circle(150% at 50% 50%);
+      transform: scale(1);
+    }
+  }
+
+  .slice-anim {
+    animation: sliceIn 1s ease forwards;
+  }
+  @keyframes sliceIn {
+    0% {
+      transform: translateX(-100%) skewX(15deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) skewX(0);
+      opacity: 1;
+    }
+  }
+
+  .zoomrotate-anim {
+    animation: zoomRotateIn 6s ease forwards;
+  }
+  @keyframes zoomRotateIn {
+    0% {
+      transform: scale(1.4) rotate(-15deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
+  }
+} */

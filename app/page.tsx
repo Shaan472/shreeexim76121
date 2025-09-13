@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation,EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -13,21 +13,21 @@ import Link from 'next/link';
 export default function HomePage() {
   const heroSlides = [
     {
-      image: 'https://as1.ftcdn.net/v2/jpg/01/63/13/30/1000_F_163133061_TlMOMqgxAvBuwzLAjxOQ8v1FQ3OexfRG.jpg',
-      title: 'Premium Quality Export Product',
-      subtitle: 'Fresh vegetables, aromatic spices, and delicious fruits from the finest farms',
+      image: './images/welcom.jpg',
+      title: 'Welcome To',
+      subtitle: 'ShreeExim Export',
       cta: 'Explore Our Products'
     },
     {
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200',
-      title: 'Global Export Solutions',
-      subtitle: 'Connecting farmers to international markets with quality assurance',
+      image: './images/spices.jpg',
+      title: 'We Are here to Export',
+      subtitle: 'Indian Spices',
       cta: 'Learn More'
     },
     {
-      image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200',
-      title: 'Sustainable Agriculture',
-      subtitle: 'Supporting eco-friendly farming practices for a better future',
+      image: './images/vegetable-fruit.jpg',
+      title: 'We Are here to Export',
+      subtitle: 'All Type of Fruits & Vegetables',
       cta: 'Our Commitment'
     }
   ];
@@ -146,38 +146,78 @@ export default function HomePage() {
       `}</style>
       {/* Hero Section with Slider */}
       <section className="relative h-screen">
-        <Swiper
-          modules={[Autoplay, Pagination, Navigation]}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          navigation={true}
-          loop={true}
-          className="h-full"
-        >
-          {heroSlides?.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <div 
-                className="relative h-full bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${slide.image})` }}
-              >
-                <div className="absolute inset-0 bg-[#00000033] bg-opacity-50"></div>
-                <div className="relative z-10 flex items-center justify-center h-full">
-                  <div className="text-center text-white max-w-4xl mx-auto px-6">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                      {slide.title}
-                    </h1>
-                    <p className="text-xl md:text-2xl mb-8 opacity-90">
-                      {slide.subtitle}
-                    </p>
-                    <Link href="/vegetables" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105 inline-block">
-                      {slide.cta}
-                </Link>
-              </div>
-              </div>
-            </div>
-          </SwiperSlide>
-          ))}
-        </Swiper>
+   <Swiper
+  modules={[Autoplay, Pagination, Navigation]}
+  autoplay={{ delay: 5000, disableOnInteraction: false }}
+  pagination={{ clickable: true }}
+  navigation={true}
+  loop={true}
+  speed={1200}
+  className="h-full hero-swiper"
+>
+  {heroSlides?.map((slide, index) => (
+    <SwiperSlide key={index}>
+      <div className="relative h-full w-full overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out slice slice-1"
+          style={{ backgroundImage: `url(${slide.image})` }}
+        ></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out slice slice-2"
+          style={{ backgroundImage: `url(${slide.image})` }}
+        ></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out slice slice-3"
+          style={{ backgroundImage: `url(${slide.image})` }}
+        ></div>
+
+        <div className="relative z-10 flex items-center justify-center h-full bg-black/40">
+          <div className="text-center text-white max-w-4xl mx-auto px-6">
+            <h1 className="text-2xl md:text-5xl font-bold mb-6 underline">{slide.title}</h1>
+            <p className="text-4xl md:text-7xl font-bold mb-8 opacity-90">{slide.subtitle}</p>
+          </div>
+        </div>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
+
+{/* <Swiper
+modules={[Autoplay]}
+autoplay={{ delay: 5000, disableOnInteraction: false }}
+loop={true}
+className="h-full w-full hero-swiper"
+>
+{heroSlides.map((slide, index) => (
+<SwiperSlide key={index}>
+<div
+className={`relative h-full w-full bg-cover bg-center bg-no-repeat slide-anim`}
+style={{ backgroundImage: `url(${slide.image})` }}
+>
+<div className="absolute inset-0 bg-black/40"></div>
+<div className="relative z-10 flex items-center justify-center h-full">
+<div className="text-center text-white max-w-4xl mx-auto px-6">
+<h4 className="text-2xl md:text-5xl font-bold mb-6 underline">
+{slide.title}
+</h4>
+<h2 className="text-4xl md:text-7xl font-bold mb-8 opacity-90">
+{slide.subtitle}
+</h2>
+<Link
+href="/vegetables"
+className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition duration-300 transform hover:scale-105 inline-block"
+>
+{slide.cta}
+</Link>
+</div>
+</div>
+</div>
+</SwiperSlide>
+))}
+</Swiper> */}
+
+
+       
       </section>
 
       {/* About Us Section */}
@@ -322,7 +362,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
       
       {/* Card 1 */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
+        <div className="shadow-xl bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
           <div className="p-3 bg-[linear-gradient(180deg,#FFFFFF_60%,rgba(168,189,250,0.75)_100%)] rounded-[20px] border border-[#777676] shadow-lg flex flex-col flex-1">
             <div className="p-6 text-center flex flex-col justify-between flex-1">
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
@@ -336,7 +376,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
 
       {/* Card 2 */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
+        <div className="shadow-xl bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
           <div className="p-3 bg-[linear-gradient(180deg,#FFFFFF_60%,rgba(168,189,250,0.75)_100%)] rounded-[20px] border border-[#777676] shadow-lg flex flex-col flex-1">
             <div className="p-6 text-center flex flex-col justify-between flex-1">
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
@@ -350,7 +390,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
 
       {/* Card 3 */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
+        <div className="shadow-xl bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
           <div className="p-3 bg-[linear-gradient(180deg,#FFFFFF_60%,rgba(168,189,250,0.75)_100%)] rounded-[20px] border border-[#777676] shadow-lg flex flex-col flex-1">
             <div className="p-6 text-center flex flex-col justify-between flex-1">
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
@@ -364,7 +404,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
 
       {/* Card 4 */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
+        <div className="shadow-xl bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
           <div className="p-3 bg-[linear-gradient(180deg,#FFFFFF_60%,rgba(168,189,250,0.75)_100%)] rounded-[20px] border border-[#777676] shadow-lg flex flex-col flex-1">
             <div className="p-6 text-center flex flex-col justify-between flex-1">
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
@@ -378,7 +418,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
 
       {/* Card 5 */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
+        <div className="shadow-xl bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
           <div className="p-3 bg-[linear-gradient(180deg,#FFFFFF_60%,rgba(168,189,250,0.75)_100%)] rounded-[20px] border border-[#777676] shadow-lg flex flex-col flex-1">
             <div className="p-6 text-center flex flex-col justify-between flex-1">
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
@@ -392,7 +432,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
 
       {/* Card 6 */}
       <div className="flex">
-        <div className="bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
+        <div className="shadow-xl bg-gradient-to-b from-[#ffffff] to-[#adbeef] p-3 rounded-[20px] border border-[#adbeef] w-full flex flex-col">
           <div className="p-3 bg-[linear-gradient(180deg,#FFFFFF_60%,rgba(168,189,250,0.75)_100%)] rounded-[20px] border border-[#777676] shadow-lg flex flex-col flex-1">
             <div className="p-6 text-center flex flex-col justify-between flex-1">
               <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
