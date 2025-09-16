@@ -98,7 +98,7 @@ export default function VegetablesPage() {
             {/* Image Section */}
             <div className="order-2 lg:order-1">
               <img 
-                src="/images/vegetable.jpg" 
+                src="/images/vegetable-1.jpg" 
                 alt="Fresh Vegetables"
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />

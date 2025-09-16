@@ -100,7 +100,7 @@ export default function FruitsPage() {
       {/* Image Section */}
       <div className="order-2 lg:order-1">
         <img 
-          src="/images/fruits.jpg" 
+          src="/images/fruits-1.jpg" 
           alt="fruits"
           className="w-full h-96 object-cover rounded-lg shadow-lg"
         />

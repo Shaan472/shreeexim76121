@@ -13,19 +13,19 @@ import Link from 'next/link';
 export default function HomePage() {
   const heroSlides = [
     {
-      image: './images/welcom.jpg',
+      image: './images/welcom-1.jpg',
       title: 'Welcome To',
-      subtitle: 'ShreeExim Export',
+      subtitle: 'ShreeExim',
       cta: 'Explore Our Products'
     },
     {
-      image: './images/spices.jpg',
+      image: './images/spices-1.jpg',
       title: 'We Are here to Export',
       subtitle: 'Indian Spices',
       cta: 'Learn More'
     },
     {
-      image: './images/vegetable-fruit.jpg',
+      image: './images/vegetable-fruit-1.jpg',
       title: 'We Are here to Export',
       subtitle: 'All Type of Fruits & Vegetables',
       cta: 'Our Commitment'
@@ -306,7 +306,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
           <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img 
-                src="/images/vegetable.jpg" 
+                src="/images/vegetable-1.jpg" 
                 alt="Vegetables"
                 className="w-full h-48 object-cover"
               />
@@ -320,7 +320,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
           </div>
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img 
-                src="/images/spices.jpg" 
+                src="/images/spices-1.jpg" 
                 alt="Spices"
                 className="w-full h-48 object-cover"
               />
@@ -334,7 +334,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
           </div>
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <img 
-                src="/images/fruits.jpg" 
+                src="/images/fruits-1.jpg" 
                 alt="Fruits"
                 className="w-full h-48 object-cover"
               />

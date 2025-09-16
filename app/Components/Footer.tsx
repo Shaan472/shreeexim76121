@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram , FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -15,7 +15,7 @@ export default function Footer() {
             Vegi<span className="text-green-400">Export</span>
           </Link>
           <p className="mt-4 text-sm text-gray-300">
-            Delivering fresh, high-quality vegetables worldwide with trust and care.
+            Delivering fresh, high-quality fruits , vegetables , spices worldwide with trust and care.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export default function Footer() {
             <li><Link href="/" className="hover:text-green-400">Home</Link></li>
             <li><Link href="/about" className="hover:text-green-400">About</Link></li>
             {/* <li><Link href="/products" className="hover:text-green-400">Products</Link></li> */}
-            <li><Link href="/contact" className="hover:text-green-400">Contact</Link></li>
+            <li><Link href="/contact-us" className="hover:text-green-400">Contact</Link></li>
           </ul>
         </div>
 
@@ -53,14 +53,17 @@ export default function Footer() {
           
           {/* Social Icons */}
           <div className="flex gap-4 mt-4">
-            <a href="#" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
+            <a href="https://www.facebook.com/share/16uQS6sxBw/?mibextid=wwXIfr" target="_blank" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
               <FaFacebookF />
             </a>
-            <a href="#" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
+            {/* <a href="#" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
               <FaTwitter />
-            </a>
-            <a href="#" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
+            </a> */}
+            <a href="https://www.instagram.com/shree_export_import?igsh=MWoyaTU5Y2lyamFwMA==&utm_source=ig_contact_invite" target="_blank" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
               <FaInstagram />
+            </a>
+            <a href="https://www.linkedin.com/company/shree-exim-proprietorship/" target="_blank" className="p-2 bg-green-700 rounded-full hover:bg-green-500 transition">
+             <FaLinkedin />
             </a>
           </div>
         </div>

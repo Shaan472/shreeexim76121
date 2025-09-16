@@ -98,7 +98,7 @@ export default function SpicesPage() {
             {/* Image Section */}
             <div className="order-2 lg:order-1">
               <img 
-                src="/images/spices.jpg" 
+                src="/images/spices-1.jpg" 
                 alt="spices"
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />

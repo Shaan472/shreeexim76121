@@ -6,9 +6,9 @@ import { MdVerified, MdStar } from 'react-icons/md';
 
 export default function AboutPage() {
   const stats = [
-    { number: '15+', label: 'Years Experience', icon: FaAward },
+    { number: '4+', label: 'Years Experience', icon: FaAward },
     { number: '25+', label: 'Countries Served', icon: FaGlobe },
-    { number: '1000+', label: 'Happy Clients', icon: FaUsers },
+    { number: '500+', label: 'Happy Clients', icon: FaUsers },
     { number: '50K+', label: 'Tons Exported', icon: FaTruck }
   ];
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2008, VegiExport began with a simple mission: to connect local farmers with global markets 
+                Founded in 2023, ShreeExim began with a simple mission: to connect local farmers with global markets 
                 while maintaining the highest standards of quality and sustainability.
               </p>
               <p className="text-lg text-gray-600 mb-6">
@@ -216,7 +216,7 @@ export default function AboutPage() {
               Our commitment to quality is backed by international certifications and industry standards.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <FaShieldAlt className="text-3xl text-green-600" />
@@ -238,13 +238,13 @@ export default function AboutPage() {
               <h3 className="text-lg font-semibold mb-2">Global GAP</h3>
               <p className="text-gray-600 text-sm">Good Agricultural Practice</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+            {/* <div className="bg-white p-6 rounded-lg shadow-lg text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <MdVerified className="text-3xl text-purple-600" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Organic Certified</h3>
               <p className="text-gray-600 text-sm">100% Organic Products</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
