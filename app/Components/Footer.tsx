@@ -45,7 +45,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
           <p className="text-black-300 text-sm">
-            123 Export Lane, Ahmedabad, West India
+            159 Samlapur - Idar, Ahmedabad, West India
           </p>
           <p className="text-black-300 text-sm mt-2">
             Email: <a href="mailto:info@vegiexport.com" className="hover:text-green-400">info@vegiexport.com</a>
