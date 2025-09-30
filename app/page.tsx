@@ -450,7 +450,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
 
 
       {/* Client Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Love from Clients</h2>
@@ -482,7 +482,7 @@ The company understands the importance of Quality and Timely Delivery of merchan
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Membership & Certification Section */}
       <section className="py-20 bg-white">

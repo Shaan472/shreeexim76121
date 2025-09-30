@@ -113,7 +113,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-green-600 to-green-800">
+      <section className="relative py-20 bg-gradient-to-r from-green-400 to-green-600">
         <div className="container mx-auto px-6">
           <div className="text-center text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
@@ -189,16 +189,16 @@ export default function ContactPage() {
         <h3 className="text-xl font-semibold mb-3">Address</h3>
         <p className="mb-1">
           <a
-            href="https://www.google.com/maps?q=123+Export+Street+City+State+12345"
+            href="https://maps.app.goo.gl/9xgE2yP8tjRFvSxt6"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-purple-600"
           >
-            123 Export Street
+            159 Samlapur - Idar
           </a>
         </p>
-        <p className="text-gray-600 mb-1">Business District</p>
-        <p className="text-gray-600 mb-1">City, State 12345</p>
+       
+        <p className="text-gray-600 mb-1">Ahmedabad, West India</p>
       </div>
 
       {/* WhatsApp */}
@@ -370,7 +370,7 @@ export default function ContactPage() {
                       <span className="text-green-600 font-bold">✓</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">15+ Years Experience</h4>
+                      <h4 className="font-semibold text-gray-800">4+ Years Experience</h4>
                       <p className="text-gray-600">Decades of expertise in international trade</p>
                     </div>
                   </div>
@@ -436,13 +436,16 @@ export default function ContactPage() {
               Come visit us at our headquarters to discuss your export requirements in person.
             </p>
           </div>
-          <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <FaMapMarkerAlt className="text-6xl text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">Interactive Map Coming Soon</p>
-              <p className="text-gray-500">123 Export Street, Business District, City, State 12345</p>
-            </div>
-          </div>
+         <div className="bg-gray-200 rounded-lg overflow-hidden">
+  {/* Google Map */}
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.1278173004976!2d72.88557522533898!3d23.84959457860282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395da8a52342a7ad%3A0x1da8eec75532d3d5!2sSamalapur%2C%20Gujarat%20383230!5e0!3m2!1sen!2sin!4v1758975291410!5m2!1sen!2sin"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="w-full h-96 border-0"
+  ></iframe>
+</div>
+
         </div>
       </section>
     </div>

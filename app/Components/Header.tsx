@@ -28,10 +28,10 @@ export default function Header() {
     <header  className={`shadow-md z-50 transition-all duration-300 ${
         isScrolled ? "background-header-scroll" : "background-header-default"
       }`}>
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-6 py-0 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold text-green-600">
-          Vegi<span className="text-gray-800">Export</span>
+         <img src="/images/logo.png" alt="Shree Exim" className="w-[90px] h-auto"/>
         </Link>
 
         {/* Desktop Menu */}
